@@ -9,9 +9,9 @@ pipeline {
   stages {
     stage('Build') {
        steps {
-	withMaven(maven: 'MAVEN_ENV') {
-            sh "mvn ${MAVEN_ARGS}"
-        }
+            withMaven{
+                sh "mvn ${MAVEN_ARGS}"
+                }
        }
     }
 	  
@@ -21,7 +21,7 @@ pipeline {
        sh 'docker container ls -a -fname=${dockerContainerName} -q | xargs -r docker container rm'
        sh 'docker images -q --filter=reference=${dockerImageName} | xargs --no-run-if-empty docker rmi -f'
       }
-    }
+  }
   stage('docker-compose start') {
       steps {
        sh 'docker compose up -d'
