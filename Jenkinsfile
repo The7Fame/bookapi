@@ -9,9 +9,9 @@ pipeline {
   stages {
     stage('Build') {
        steps {
-            withMaven{
-                sh "mvn ${MAVEN_ARGS}"
-                }
+
+                sh "everything is build before"
+
        }
     }
 	  
