@@ -9,9 +9,7 @@ pipeline {
   stages {
     stage('Build') {
        steps {
-
-                sh "everything is build before"
-
+                echo "everything is build before"
        }
     }
 	  
